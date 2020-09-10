@@ -1,0 +1,17 @@
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1" title="{{ 'LIB.DIALOG.MODAL.chart_name' | translate }}">
+      <img src="../../../assets/png/16/pencil.png" class="img-pencil-16" />
+    </span>
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="{{ 'LIB.DIALOG.MODAL.CHART_OPERATIONS.placeholder_name' | translate }}"
+    title="{{ 'LIB.DIALOG.MODAL.CHART_OPERATIONS.placeholder_name' | translate }}"
+    aria-describedby="basic-addon1"
+    [value]="value.name?value.name:''"
+    (input)="value.name = $event.target.value"
+    title="{{ 'LIB.DIALOG.MODAL.chart_name' | translate }}"
+  />
+</div>

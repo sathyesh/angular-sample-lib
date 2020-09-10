@@ -1,0 +1,3 @@
+:host /deep/ ngb-accordion .card .card-header a {
+  display: block;
+}

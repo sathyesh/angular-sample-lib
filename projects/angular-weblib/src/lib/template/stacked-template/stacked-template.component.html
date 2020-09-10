@@ -1,0 +1,11 @@
+<custom-ngb-accordion [activeIds]="activeIds" (panelChange)="toggle($event)" type="dark">
+  <ng-container *ngFor="let contentTpl of contentTpls">
+    <ngb-panel [title]="contentTpl.title" [id]="contentTpl.title">
+      <ng-template ngbPanelContent>
+        <ng-template [ngTemplateOutlet]="contentTpl?.templateRef"></ng-template>
+      </ng-template>
+    </ngb-panel>
+  </ng-container>
+</custom-ngb-accordion>
+
+<ng-template [ngTemplateOutlet]="contentMainTpl?.templateRef"></ng-template>

@@ -1,0 +1,40 @@
+{
+  "LIB": {
+    "DIALOG": {
+      "MODAL": {
+        "CHART_OPERATIONS": {
+          "ACTIONS": {
+            "update": "Aktualisieren",
+            "save": "Speichern",
+            "delete": "Löschen"
+          },
+          "failed": "{{action}} des Diagramms {{chartname}} nicht durchgeführt.",
+          "success": "{{action}} des Diagramms {{chartname}} erfolgreich durchgeführt.",
+          "placeholder_name": "Name"
+        },
+        "default_btn_submit": "Speichern",
+        "default_btn_cancel": "Abbrechen",
+        "chart_name": "Diagrammname",
+        "save_title": "Diagramm speichern",
+        "rename_title": "Diagramm umbenennen",
+        "update_title": "Diagramm aktualisieren",
+        "share_title": "Diagramm teilen",
+        "delete_title": "Diagramm löschen",
+        "delete_btn_submit": "Löschen",
+        "delete_question": "Wollen Sie das Diagramm &ldquo;{{name}}&ldquo; wirklich löschen?",
+        "share_lbl_link": "Link zum Teilen:",
+        "link": "Hyperlink zum Diagramm",
+        "title_clipboard": "In die Zwischenablage kopieren",
+        "share_lbl_common_share": "Freigabe für:",
+        "share_lbl_nobody": "Keine Freigabe",
+        "share_lbl_group": "Alle Mitglieder der Gruppe",
+        "share_lbl_public": "Alle Nutzer",
+        "update_new": "Neues Diagramm erstellen?",
+        "default_btn_close": "Schließen",
+        "delete_filter_question": "Wollen Sie alle Filter des Diagramms löschen?",
+        "delete_filter_title": "Filter löschen",
+        "title_mailto": "Per E-Mail versenden"
+      }
+    }
+  }
+}

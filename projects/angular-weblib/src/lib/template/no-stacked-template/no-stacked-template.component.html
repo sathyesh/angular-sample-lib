@@ -1,0 +1,101 @@
+<ng-sidebar-container [style.height.px]="getHeight()">
+  <ng-sidebar
+    *ngFor="let contentTpl of contentTpls"
+    [opened]="contentTpl.opened"
+    mode="push"
+    [dock]="contentTpl.widthDock > 0"
+    [position]="contentTpl.position"
+    [dockedSize]="contentTpl.widthDock + 'px'"
+    [style.width.px]="contentTpl.width + contentTpl.widthDock"
+    (onOpened)="repaint()"
+    (onClosed)="repaint()"
+  >
+    <ng-container [ngSwitch]="contentTpl.position">
+      <ng-container *ngSwitchCase="'left'">
+        <div class="sidebar bg-light" [style.height.px]="getHeight()">
+          <div class="content float-left px-3 pt-3" [style.width.px]="contentTpl.width">
+            <ng-template [ngTemplateOutlet]="contentTpl?.templateRef"></ng-template>
+          </div>
+          <div class="panel float-right bg-dark text-center c-pointer" (click)="toggle(contentTpl)" [style.width.px]="contentTpl.widthDock">
+            <img
+              src="assets/png/16/{{ getPanelIcon(contentTpl.opened) }}.png"
+              title="{{ 'APP.GLOBAL.TEMPLATE.title_toggle_config' | translate }}"
+            />
+            <p class="rotate-text text-white font-weight-bold mt-4">{{ contentTpl.title }}</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'right'">
+        <div class="sidebar bg-light" [style.height.px]="getHeight()">
+          <div class="panel float-left bg-dark text-center c-pointer" (click)="toggle(contentTpl)" [style.width.px]="contentTpl.widthDock">
+            <img
+              src="assets/png/16/{{ getPanelIcon(contentTpl.opened) }}.png"
+              title="{{ 'APP.GLOBAL.TEMPLATE.title_toggle_config' | translate }}"
+            />
+            <p class="rotate-text text-white font-weight-bold mt-4">{{ contentTpl.title }}</p>
+          </div>
+          <div class="content float-right px-3 pt-3" [style.width.px]="contentTpl.width">
+            <ng-template [ngTemplateOutlet]="contentTpl?.templateRef"></ng-template>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'bottom'">
+        <div
+          class="sidebar bg-light"
+          [style.height.px]="contentTpl.width + contentTpl.widthDock"
+          [style.width.px]="globalTemplateSize.getWidthForMainArea()"
+        >
+          <div
+            class="panel bg-dark c-pointer text-white font-weight-bold"
+            (click)="toggle(contentTpl)"
+            [style.height.px]="contentTpl.widthDock"
+            style="display: table; width: 100%;"
+          >
+            <div class="pl-3 align-middle" style="display: table-cell;">
+              <img
+                src="assets/png/16/{{ getPanelIcon(contentTpl.opened) }}.png"
+                title="{{ 'APP.GLOBAL.TEMPLATE.title_toggle_config' | translate }}"
+              />
+              {{ contentTpl.title }}
+            </div>
+          </div>
+          <div class="content px-3 py-3" [style.height.px]="contentTpl.width">
+            <ng-template [ngTemplateOutlet]="contentTpl?.templateRef"></ng-template>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'top'">
+        <div
+          class="sidebar bg-light"
+          [style.height.px]="contentTpl.width + contentTpl.widthDock"
+          [style.width.px]="globalTemplateSize.getWidthForMainArea()"
+        >
+          <div class="content px-3 py-3" [style.height.px]="contentTpl.width">
+            <ng-template [ngTemplateOutlet]="contentTpl?.templateRef"></ng-template>
+          </div>
+          <div
+            class="panel bg-dark c-pointer text-white font-weight-bold"
+            (click)="toggle(contentTpl)"
+            [style.height.px]="contentTpl.widthDock"
+            style="display: table; width: 100%;"
+          >
+            <div class="pl-3 align-middle" style="display: table-cell;">
+              <img
+                src="assets/png/16/{{ getPanelIcon(contentTpl.opened) }}.png"
+                title="{{ 'APP.GLOBAL.TEMPLATE.title_toggle_config' | translate }}"
+              />
+              {{ contentTpl.title }}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-sidebar>
+
+  <div ng-sidebar-content class="content">
+    <ng-template [ngTemplateOutlet]="contentMainTpl?.templateRef"></ng-template>
+  </div>
+</ng-sidebar-container>

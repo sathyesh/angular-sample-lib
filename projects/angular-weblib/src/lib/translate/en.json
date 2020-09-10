@@ -1,0 +1,42 @@
+{
+  "LIB": {
+    "DIALOG": {
+      "MODAL": {
+        "CHART_OPERATIONS": {
+          "ACTIONS": {
+            "update": "Update",
+            "save": "Save",
+            "delete": "Deletion"
+          },
+          "failed": "{{action}} of chart {{chartname}} failed.",
+          "success": "{{action}} of chart {{chartname}} completed successfully.",
+          "placeholder_name": "Name"
+        },
+        "default_btn_submit": "Save",
+        "default_btn_cancel": "Cancel",
+        "chart_name": "Chart name",
+        "save_title": "Save chart",
+        "rename_title": "Rename chart",
+        "update_title": "Update chart",
+        "share_title": "Share chart",
+        "delete_title": "Delete chart",
+        "delete_btn_submit": "Delete",
+        "delete_question": "Are you sure to delete Chart with name &ldquo;{{name}}&ldquo;?",
+        "share_lbl_link": "Link for Sharing:",
+        "link": "Hyperlink to this chart",
+        "title_clipboard": "Copy to clipboard",
+        "share_lbl_common_share": "Share with:",
+        "share_lbl_nobody": "no share",
+        "share_lbl_group": "All users of this group",
+        "share_lbl_public": "All users",
+        "update_new": "Create new chart?",
+        "default_btn_close": "Close",
+        "delete_filter_question": "Are you sure to delete all filter?",
+        "delete_filter_title": "Delete filter",
+        "title_mailto": "Send via mail",
+        "share_mail_subject": "{{prefix}}: shared chart {{name}}",
+        "share_mail_body": "Dear user,%0D%0A%0D%0Athe chart {{name}} is shared for you. For access use this hyperlink%0D%0A{{url}}%0D%0Aplease.%0D%0A%0D%0A"
+      }
+    }
+  }
+}

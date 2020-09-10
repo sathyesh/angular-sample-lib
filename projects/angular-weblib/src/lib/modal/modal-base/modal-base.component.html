@@ -1,0 +1,48 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" [ngSwitch]="content">
+      <ng-container *ngSwitchCase="'rename'">{{ "LIB.DIALOG.MODAL.rename_title" | translate }}</ng-container>
+      <ng-container *ngSwitchCase="'save'">{{ "LIB.DIALOG.MODAL.save_title" | translate }}</ng-container>
+      <ng-container *ngSwitchCase="'update'">{{ "LIB.DIALOG.MODAL.update_title" | translate }}</ng-container>
+      <ng-container *ngSwitchCase="'share'">{{ "LIB.DIALOG.MODAL.share_title" | translate }}</ng-container>
+      <ng-container *ngSwitchCase="'delete-diagram'">{{ "LIB.DIALOG.MODAL.delete_title" | translate }}</ng-container>
+      <ng-container *ngSwitchCase="'delete-filter'">{{ "LIB.DIALOG.MODAL.delete_filter_title" | translate }}</ng-container>
+      <ng-container *ngSwitchDefault>{{ title }}</ng-container>
+    </h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" [ngSwitch]="content">
+    <ng-container *ngSwitchCase="'rename'">
+      <iav-modal-rename [value]="value"></iav-modal-rename>
+    </ng-container>
+    <ng-container *ngSwitchCase="'save'">
+      <iav-modal-save [value]="value"></iav-modal-save>
+    </ng-container>
+    <ng-container *ngSwitchCase="'update'">
+      <iav-modal-update [value]="value"></iav-modal-update>
+    </ng-container>
+    <ng-container *ngSwitchCase="'share'">
+      <iav-modal-share [value]="value"></iav-modal-share>
+    </ng-container>
+    <ng-container *ngSwitchCase="'delete-diagram'">
+      <iav-modal-delete-diagram [value]="value"></iav-modal-delete-diagram>
+    </ng-container>
+    <ng-container *ngSwitchCase="'delete-filter'">
+      <iav-modal-delete-filter [value]="value"></iav-modal-delete-filter>
+    </ng-container>
+    <ng-container *ngSwitchDefault>{{ content }}</ng-container>
+  </div>
+  <div *ngIf="!value?.can_write" class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">{{ "LIB.DIALOG.MODAL.default_btn_close" | translate }}</button>
+  </div>
+  <div *ngIf="value?.can_write" class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">{{ "LIB.DIALOG.MODAL.default_btn_cancel" | translate }}</button>
+    <button type="button" class="btn btn-primary" (click)="save()" [ngSwitch]="content">
+      <ng-container *ngSwitchCase="'delete-diagram'">{{ "LIB.DIALOG.MODAL.delete_btn_submit" | translate }}</ng-container>
+      <ng-container *ngSwitchCase="'delete-filter'">{{ "LIB.DIALOG.MODAL.delete_btn_submit" | translate }}</ng-container>
+      <ng-container *ngSwitchDefault>{{ "LIB.DIALOG.MODAL.default_btn_submit" | translate }}</ng-container>
+    </button>
+  </div>
+</div>

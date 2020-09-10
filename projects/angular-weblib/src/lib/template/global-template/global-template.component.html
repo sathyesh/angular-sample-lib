@@ -1,0 +1,10 @@
+<ng-container *ngIf="templateConfigService.isMobileDesign; then stackedContainer; else nonStackedContainer">
+</ng-container>
+
+<ng-template #stackedContainer>
+  <app-stacked-template [contentTpls]="contentTpls" [contentMainTpl]="contentMainTpl"></app-stacked-template>
+</ng-template>
+
+<ng-template #nonStackedContainer>
+  <app-no-stacked-template [contentTpls]="contentTpls" [contentMainTpl]="contentMainTpl"></app-no-stacked-template>
+</ng-template>

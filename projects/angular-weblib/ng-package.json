@@ -1,0 +1,20 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/angular-weblib",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "cssUrl": "inline",
+    "umdModuleIds": {
+      "ngx-toastr": "ngxToastr",
+      "ngx-clipboard": "ngxClipboard",
+      "@ng-bootstrap/ng-bootstrap": "i1$1",
+      "@ngx-translate/core": "i3",
+      "ng-sidebar": "ngSidebar"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "ngx-toastr",
+    "ngx-clipboard",
+    "@ngx-translate/core"
+  ]
+}

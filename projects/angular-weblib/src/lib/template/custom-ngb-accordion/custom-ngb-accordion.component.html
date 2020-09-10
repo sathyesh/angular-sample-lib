@@ -1,0 +1,17 @@
+<!-- customized template, source: https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/accordion/accordion.ts, last change: 27.03.2018 -->
+<ng-template ngFor let-panel [ngForOf]="panels">
+  <div class="card">
+    <div role="tab" id="{{panel.id}}-header" [class.active]="panel.isOpen">
+      <button type="button" (click)="toggle(panel.id)" [class.text-muted]="panel.disabled" [attr.tabindex]="(panel.disabled ? '-1' : null)"
+        [attr.aria-expanded]="panel.isOpen" [attr.aria-controls]="(panel.isOpen ? panel.id : null)"
+        [attr.aria-disabled]="panel.disabled" [class]="'custom-width text-left btn ' + (panel.type ? 'btn-'+panel.type: type ? 'btn-'+type : '') + ' ' + (panel.type ? 'bg-'+panel.type: type ? 'bg-'+type : '')">
+        {{panel.title}}
+        <ng-template [ngTemplateOutlet]="panel.titleTpl?.templateRef"></ng-template>
+    </button>
+    </div>
+    <div id="{{panel.id}}" role="tabpanel" [attr.aria-labelledby]="panel.id + '-header'" class="card-body collapse {{panel.isOpen ? 'show' : null}}"
+      *ngIf="!destroyOnHide || panel.isOpen">
+      <ng-template [ngTemplateOutlet]="panel.contentTpl?.templateRef"></ng-template>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+.sidebar>.content {
+  height: inherit;
+  overflow: auto;
+}
+
+.sidebar>.panel {
+  height: inherit;
+}
+
+.rotate-text {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+:host>>>aside.ng-sidebar {
+  z-index: 1;
+  overflow: hidden;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row input-group mb-3 col-sm">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1" title="{{ 'LIB.DIALOG.MODAL.chart_name' | translate }}">
+        <img src="assets/png/16/pencil.png" />
+      </span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="{{ 'LIB.DIALOG.MODAL.CHART_OPERATIONS.placeholder_name' | translate }}"
+      title="{{ 'LIB.DIALOG.MODAL.CHART_OPERATIONS.placeholder_name' | translate }}"
+      aria-describedby="basic-addon1"
+      [value]="value.name?value.name:''"
+      (input)="value.name = $event.target.value"
+      title="{{ 'LIB.DIALOG.MODAL.chart_name' | translate }}"
+    />
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <label for="public">{{ "LIB.DIALOG.MODAL.update_new" | translate }}</label>
+    </div>
+    <div class="col-sm">
+      <input id="public" type="checkbox" (change)="toggle($event.target.checked)" />
+    </div>
+  </div>
+</div>

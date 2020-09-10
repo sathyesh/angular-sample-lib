@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <label for="url">{{ "LIB.DIALOG.MODAL.share_lbl_link" | translate }}</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            [class.btn-success]="clipboard_copied"
+            ngxClipboard
+            [cbContent]="url"
+            (cbOnSuccess)="clipboard_copied = true"
+            title="{{ 'LIB.DIALOG.MODAL.title_clipboard' | translate }}"
+          >
+            <img src="assets/png/16/copy.png" />
+          </button>
+          <button
+            class="btn btn-secondary"
+            type="button"
+            [class.btn-success]="mail_opened"
+            (click)="openMailto()"
+            title="{{ 'LIB.DIALOG.MODAL.title_mailto' | translate }}"
+          >
+            <img src="assets/png/16/mail.png" />
+          </button>
+        </div>
+        <input
+          id="url"
+          type="text"
+          class="form-control"
+          [value]="url"
+          disabled="disabled"
+          aria-describedby="basic-addon1"
+          title="{{ 'LIB.DIALOG.MODAL.link' | translate }}"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            [class.btn-success]="window_opened"
+            (click)="openUrl()"
+            title="{{ 'LIB.CHART_OVERVIEW.OVERVIEW_NODE.title_open' | translate }}"
+          >
+            <img src="assets/png/16/arrow_up_right.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="value?.can_write" class="row">
+    <div class="col">
+      <label for="public">{{ "LIB.DIALOG.MODAL.share_lbl_common_share" | translate }}</label>
+      <div class="form-check" title="{{ 'LIB.DIALOG.MODAL.share_lbl_nobody' | translate }}">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="noShare"
+          (change)="change('noshare', true)"
+          name="share"
+          [checked]="value?.public == false && value?.group == ''"
+        />
+        <label class="form-check-label" for="noShare">{{ "LIB.DIALOG.MODAL.share_lbl_nobody" | translate }}</label>
+      </div>
+      <div class="form-check" title="{{ 'LIB.DIALOG.MODAL.share_lbl_group' | translate }}">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="userGroup"
+          #userGroup
+          name="share"
+          [checked]="value?.public == false && value?.group != ''"
+          (click)="change('group', userGroupSel.value)"
+        />
+        <label class="form-check-label" for="userGroup">{{ "LIB.DIALOG.MODAL.share_lbl_group" | translate }}</label>
+        <select
+          (click)="change('group', $event.target.value)"
+          class="form-control"
+          id="userGroups"
+          [disabled]="!userGroup.checked"
+          #userGroupSel
+        >
+          <option *ngFor="let userGroup of userGroups" [value]="userGroup" [selected]="userGroup == value?.group">{{ userGroup }}</option>
+        </select>
+      </div>
+      <div class="form-check" title="{{ 'LIB.DIALOG.MODAL.share_lbl_public' | translate }}">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="public"
+          [checked]="value?.public && value?.group == ''"
+          (click)="change('public', $event.target.checked)"
+          name="share"
+        />
+        <label class="form-check-label" for="public">{{ "LIB.DIALOG.MODAL.share_lbl_public" | translate }}</label>
+      </div>
+    </div>
+  </div>
+</div>
